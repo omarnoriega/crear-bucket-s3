@@ -20,7 +20,7 @@ public class App {
 
     public static void main(String[] args) throws IOException {
 
-        Region region = Region.US_WEST_2;
+        Region region = Region.US_EAST_1;
         S3Client s3 = S3Client.builder().region(region).build();
 
         String bucket = "bucket" + System.currentTimeMillis();
