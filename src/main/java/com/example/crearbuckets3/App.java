@@ -3,22 +3,15 @@ App ejemplo para crear y eliminar Buckets en S3
  */
 package com.example.crearbuckets3;
 
-import java.io.IOException;
 import software.amazon.awssdk.core.sync.RequestBody;
 import software.amazon.awssdk.regions.Region;
-import software.amazon.awssdk.services.s3.model.CreateBucketConfiguration;
-import software.amazon.awssdk.services.s3.model.CreateBucketRequest;
-import software.amazon.awssdk.services.s3.model.DeleteBucketRequest;
-import software.amazon.awssdk.services.s3.model.DeleteObjectRequest;
-import software.amazon.awssdk.services.s3.model.HeadBucketRequest;
-import software.amazon.awssdk.services.s3.model.PutObjectRequest;
-import software.amazon.awssdk.services.s3.model.S3Exception;
 import software.amazon.awssdk.services.s3.S3Client;
+import software.amazon.awssdk.services.s3.model.*;
 
 
 public class App {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args)  {
 
         Region region = Region.US_EAST_1;
         S3Client s3 = S3Client.builder().region(region).build();
@@ -37,7 +30,7 @@ public class App {
         System.out.println("Upload complete");
         System.out.printf("%n");
 
-        //cleanUp(s3, bucket, key);
+        cleanUp(s3, bucket, key);
 
         System.out.println("Closing the connection to {S3}");
         s3.close();
